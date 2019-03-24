@@ -1,5 +1,6 @@
 using MatrixDepot
 using Base.Test
+using Printf
 
 include("solver3.jl")
 include("alpha_max.jl")
