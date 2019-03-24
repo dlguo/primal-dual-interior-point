@@ -1,5 +1,5 @@
 using MatrixDepot
-using Base.Test
+using Test
 using Printf
 
 include("solver3.jl")
