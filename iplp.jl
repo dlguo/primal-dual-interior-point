@@ -30,14 +30,13 @@ struct IplpProblem
     hi::Vector{Float64}
 end
 
-function convert_matrixdepot(mmmeta::Dict{AbstractString,Any})
-    key_base = sort(collect(keys(mmmeta)))[1]
+function convert_matrixdepot(mmmeta)
     return IplpProblem(
-        vec(mmmeta[key_base*"_c"]),
-        mmmeta[key_base],
-        vec(mmmeta[key_base*"_b"]),    
-        vec(mmmeta[key_base*"_lo"]),    
-        vec(mmmeta[key_base*"_hi"]))
+        mmmeta.c,
+        mmmeta.A,
+        mmmeta.b,
+        mmmeta.lo,
+        mmmeta.hi)
 end
 
 """ 
