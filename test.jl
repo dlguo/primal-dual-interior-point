@@ -23,11 +23,11 @@ end
 @printf("0. other\n")
 @printf("Which problem to solve? ")
 
-k = parse(Int,readline(STDIN))
+k = parse(Int,readline(stdin))
 
 if k == 0
     @printf("Please enter the problem name (e.g. lp_afiro): ")
-    name = "LPnetlib/"*readline(STDIN)[1:end-1]
+    name = "LPnetlib/"*readline(stdin)[1:end-1]
 else
     name = "LPnetlib/"*problem_list[k]
 end
