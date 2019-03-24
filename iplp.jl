@@ -1,6 +1,7 @@
 using MatrixDepot
 using Test
 using Printf
+using SparseArrays
 
 include("solver3.jl")
 include("alpha_max.jl")
@@ -10,7 +11,7 @@ include("presolve.jl")
 include("solve_standardlp.jl")
 include("phaseone.jl")
 
-type IplpSolution
+struct IplpSolution
     x::Vector{Float64} # the solution vector 
     flag::Bool         # a true/false flag indicating convergence or not
     cs::Vector{Float64} # the objective vector in standard form
@@ -21,7 +22,7 @@ type IplpSolution
     s::Vector{Float64} # the solution s in standard form
 end  
 
-type IplpProblem
+struct IplpProblem
     c::Vector{Float64}
     A::SparseMatrixCSC{Float64} 
     b::Vector{Float64}
