@@ -51,7 +51,7 @@ function convert2standard(P)
      -P.c[index3,1]; P.c[index4,1]; zeros(n[4],1)]
 
     As = [P.A[:,index1] -P.A[:,index1] P.A[:,index2] -P.A[:,index3] P.A[:,index4] spzeros(m,n[4]);
-     spzeros(n[4],2*n[1]+n[2]+n[3]) speye(n[4]) speye(n[4])]
+     spzeros(n[4],2*n[1]+n[2]+n[3]) Matrix{Float64}(I,n[4],n[4]) Matrix{Float64}(I,n[4],n[4])]
 
     bs = [P.b-P.A[:,index2]*P.lo[index2,1]-P.A[:,index3]*P.hi[index3,1]-P.A[:,index4]*P.lo[index4,1];
      P.hi[index4,1]-P.lo[index4,1]]
