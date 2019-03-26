@@ -6,7 +6,7 @@ obtain the starting point for PD method
 function starting_point(A,b,c)
     AA = A*A'
 
-    f = cholfact(AA)
+    f = cholesky(AA)
     # f = ldltfact(AA)
     # f = factorize(AA)
 
