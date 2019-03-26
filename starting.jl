@@ -24,8 +24,8 @@ function starting_point(A,b,c)
     dx = max(-1.5*minimum(x),0.0)
     ds = max(-1.5*minimum(s),0.0)
 
-    x = x+dx
-    s = s+ds
+    x = x.+dx
+    s = s.+ds
 
     # ^0
     xs = dot(x,s)/2.0
@@ -33,8 +33,8 @@ function starting_point(A,b,c)
     dx = xs/sum(s)
     ds = xs/sum(x)
 
-    x = x+dx
-    s = s+ds
+    x = x.+dx
+    s = s.+ds
 
     return x,lambda,s
 end
