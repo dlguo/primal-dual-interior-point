@@ -54,7 +54,7 @@ function solve_standardlp(A,b,c,maxit=100,tol=1e-8,verbose=false)
 
         rb = spzeros(m)
         rc = spzeros(n)
-        rxs = x_aff.*s_aff-sigma*mu
+        rxs = x_aff.*s_aff.-sigma*mu
 
         lambda_cc,x_cc,s_cc = solve3(f3,A,x0,s0,rb,rc,rxs)
 
@@ -76,10 +76,10 @@ function solve_standardlp(A,b,c,maxit=100,tol=1e-8,verbose=false)
             s1_dual = s0+alpha_max_dual*ds
             mu_p = dot(x1_pri,s1_dual)/n
 
-            xind = indmin(x1_pri)
+            xind = argmin(x1_pri)
             # @test x1_pri[xind] == 0
             f_pri = (gamma_f*mu_p/s1_dual[xind]-x0[xind])/alpha_max_pri/dx[xind]
-            sind = indmin(s1_dual)
+            sind = argmin(s1_dual)
             # @test s1_dual[sind] == 0
             f_dual = (gamma_f*mu_p/x1_pri[sind]-s0[sind])/alpha_max_dual/ds[sind]
 
