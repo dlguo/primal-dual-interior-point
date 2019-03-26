@@ -32,11 +32,12 @@ else
     name = "LPnetlib/"*problem_list[k]
 end
 
+@printf("Solving %s.", name)
 
-try global P = convert_matrixdepot(matrixdepot(name,:read,meta = true))
+try global P = convert_matrixdepot(mdopen(name))
 catch 
-    matrixdepot(name,:get)
-    global P = convert_matrixdepot(matrixdepot(name,:read,meta = true))
+    mdopen(name)
+    global P = convert_matrixdepot(mdopen(name))
 end
 
 tol=1e-8

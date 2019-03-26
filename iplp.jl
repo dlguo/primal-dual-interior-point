@@ -2,6 +2,7 @@ using MatrixDepot
 using Test
 using Printf
 using SparseArrays
+using LinearAlgebra
 
 include("solver3.jl")
 include("alpha_max.jl")
@@ -32,11 +33,11 @@ end
 
 function convert_matrixdepot(mmmeta)
     return IplpProblem(
-        mmmeta.c,
+        vec(mmmeta.c),
         mmmeta.A,
-        mmmeta.b,
-        mmmeta.lo,
-        mmmeta.hi)
+        vec(mmmeta.b),
+        vec(mmmeta.lo),
+        vec(mmmeta.hi))
 end
 
 """ 
@@ -89,11 +90,11 @@ function iplp(Problem, tol; maxit=100)
 
     ### convert to standard form
     @show size(Ps.A)
-    @show rank(full(Ps.A))
+    @show rank(Array{Float64}(Ps.A))
     
     A,b,c,ind1,ind2,ind3,ind4 = convert2standard(Ps)
     @show size(A)
-    @show rank(full(A))
+    @show rank(Array{Float64}(A))
     ### detect infeasibility
 
     if phaseone(A,b)
