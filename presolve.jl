@@ -103,7 +103,7 @@ end
 
 function revProb(P, ind0c, dup_main_c, ind_dup_c, x1)
     m, n = size(P.A)
-    x = Array(Float64, n)
+    x = Array{Float64}(undef, n)
     fill!(x, Inf)
     j = 1
     for i = 1:n
