@@ -99,7 +99,7 @@ function iplp(Problem, tol; maxit=100)
     ### detect infeasibility
 
     if phaseone(A,b)
-        warn("This problem is infeasible.")
+        @warn "This problem is infeasible."
         return IplpSolution(vec([0.]),false,vec(c),A,vec(b),vec([0.]),vec([0.]),vec([0.]))
     end
 
