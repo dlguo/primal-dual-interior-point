@@ -3,6 +3,7 @@ using Test
 using Printf
 using SparseArrays
 using LinearAlgebra
+using Statistics
 
 include("solver3.jl")
 include("alpha_max.jl")
