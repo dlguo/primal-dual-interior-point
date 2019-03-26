@@ -94,8 +94,8 @@ Presolve function
     indpre_col = Array(1:n)
     flags_row = trues(m)
     flags_col = trues(n)
-    flags_row[remove_ind_row] = false
-    flags_col[remove_ind_col] = false
+    flags_row[remove_ind_row] .= false
+    flags_col[remove_ind_col] .= false
 
     return IplpProblem(P.c[flags_col], P.A[flags_row, flags_col],
      P.b[flags_row], P.lo[flags_col], P.hi[flags_col]), ind0c, dup_main_c, ind_dup_c
