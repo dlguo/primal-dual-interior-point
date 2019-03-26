@@ -4,10 +4,10 @@ function fact3(A,x,s)
     m,n = size(A)
 
     M = [spzeros(m,m) A spzeros(m,n);
-     A' spzeros(n,n) speye(n);
-      spzeros(n,m) spdiagm(s[:,1]) spdiagm(x[:,1])]
+     A' spzeros(n,n) Matrix{Float64}(I,n,n);
+      spzeros(n,m) spdiagm(0=>s[:,1]) spdiagm(0=>x[:,1])]
 
-    f = lufact(M)
+    f = lu(M)
 
     return f
 end
@@ -16,7 +16,7 @@ function solve3(f,A,x,s,rb,rc,rxs)
     m = length(rb)
     n = length(rc)
 
-    b = full([-rb; -rc; -rxs])
+    b = Array{Float64}([-rb; -rc; -rxs])
     b = f\b
 
     dlam = b[1:m]

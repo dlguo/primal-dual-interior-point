@@ -20,7 +20,7 @@ function fact(A,x,s)
 
     SID = [ spzeros(m,m) A; A' sparse(collect(1:n),collect(1:n),d[:,1])]
 
-    f = ldltfact(SID)
+    f = ldlt(SID)
 
     # try f = ldltfact(SID)
     # catch
@@ -55,7 +55,7 @@ function solve(f,x,s,rb,rc,rxs)
     m = length(rb)
 
     # b1 = [-rb; -rc+rxs./x]
-    b1 = full([-rb; -rc+rxs./x])
+    b1 = Array{Float64}([-rb; -rc+rxs./x])
 
     x1 = f\b1
 
