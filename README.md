@@ -1,6 +1,6 @@
 # Primal-dual Interior-point Solver for Linear Programming
 
-This is a course project for CS520: Computational Methods for Optimization collaborated with Xin Ye. The complete algorithms and experimental result are in the [report](./report.pdf).
+This is a course project for CS520: Computational Methods for Optimization collaborated with [Xin Ye](https://github.com/xinye83). The complete algorithms and experimental result are in the [report](./report.pdf).
 
 ## Features
 
